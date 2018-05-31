@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class LibraryRead {
 
 
-    Connection connection;
+    private Connection connection;
 
     LibraryRead(Connection connection) {
         this.connection = connection;
@@ -33,6 +33,7 @@ public class LibraryRead {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("Nie znaleziono książki");
         return null;
     }
 }
