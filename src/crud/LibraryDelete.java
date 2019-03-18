@@ -1,3 +1,5 @@
+package crud;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -6,7 +8,7 @@ public class LibraryDelete {
 
     Connection connection;
 
-    LibraryDelete(Connection connection) {
+    public LibraryDelete(Connection connection) {
         this.connection = connection;
     }
 

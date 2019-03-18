@@ -1,4 +1,6 @@
-import java.sql.SQLException;
+import dao.BookDao;
+import model.Book;
+
 import java.util.Scanner;
 
 public class ConnectMySQL {
@@ -6,14 +8,14 @@ public class ConnectMySQL {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/library";
         String username = "root";
-        String password = "-Masseffect3-";
+        String password = "toor";
 
         BookDao bookDao = new BookDao();
         Scanner scan = new Scanner(System.in);
 
-        boolean dalej = true;
-        while (dalej) {
-            System.out.println("Wybierz opcję:\n1 - Dodaj nową książkę\n2 - Wyświetl książkę na podstawie isbn\n3 - Usuń książkę\n4 - Auktualizuj książkę\n5 - Koniec");
+        boolean next = true;
+        while (next) {
+            System.out.println("Select option:\n1 - Add new book\n2 - Show book by isbn\n3 - Remove book\n4 - Update book\n5 - End");
             int choice = scan.nextInt();
             String isbn;
             String title;
@@ -23,44 +25,44 @@ public class ConnectMySQL {
             Book book;
             switch (choice) {
                 case 1:
-                    System.out.println("Podaj tytuł");
+                    System.out.println("Enter Title");
                     title = scan.next();
-                    System.out.println("Podaj autora");
+                    System.out.println("Enter Author");
                     author = scan.next();
-                    System.out.println("Podaj ISBN");
+                    System.out.println("Enter ISBN");
                     isbn = scan.next();
-                    System.out.println("Podaj rok wydania");
+                    System.out.println("Enter release year");
                     year = scan.next();
                     book = new Book(title, author, year, isbn);
                     bookDao.doSave(book);
                     break;
                 case 2:
-                    System.out.println("Podaj ISBN");
+                    System.out.println("Enter ISBN");
                     isbn = scan.next();
                     bookDao.doRead(isbn);
                     break;
                 case 3:
-                    System.out.println("Podaj ID książki");
+                    System.out.println("Enter Book ID");
                     id = scan.nextLong();
                     bookDao.doDelete(id);
                     break;
                 case 4:
-                    System.out.println("Podaj nowy tytuł");
+                    System.out.println("Enter new title");
                     title = scan.next();
-                    System.out.println("Podaj nowego autora");
+                    System.out.println("Enter new author");
                     author = scan.next();
-                    System.out.println("Podaj nowy ISBN");
+                    System.out.println("Enter new ISBN");
                     isbn = scan.next();
-                    System.out.println("Podaj nowy rok wydania");
+                    System.out.println("Enter new release year");
                     year = scan.next();
-                    System.out.println("Podaj ID książki którą chcesz zmienić");
+                    System.out.println("Enter Book ID witch you want to change");
                     id = scan.nextLong();
                     book = new Book(title, author, year, isbn);
                     book.setId(id);
                     bookDao.doUpdate(book);
                     break;
                 case 5:
-                    dalej = false;
+                    next = false;
                     break;
             }
 

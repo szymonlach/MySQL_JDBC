@@ -1,3 +1,11 @@
+package dao;
+
+import crud.LibraryDelete;
+import crud.LibraryRead;
+import crud.LibrarySave;
+import crud.LibraryUpadte;
+import model.Book;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -6,7 +14,7 @@ public class BookDao {
 
     private static final String url = "jdbc:mysql://localhost:3306/library";
     private static final String username = "root";
-    private static final String password = "-Masseffect3-";
+    private static final String password = "toor";
 
     private Connection connection;
 

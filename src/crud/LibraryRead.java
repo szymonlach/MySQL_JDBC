@@ -1,3 +1,7 @@
+package crud;
+
+import model.Book;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +12,7 @@ public class LibraryRead {
 
     private Connection connection;
 
-    LibraryRead(Connection connection) {
+    public LibraryRead(Connection connection) {
         this.connection = connection;
     }
 
@@ -33,7 +37,7 @@ public class LibraryRead {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Nie znaleziono książki");
+        System.out.println("Don't found book");
         return null;
     }
 }
